@@ -15,9 +15,16 @@
         }
     }
 
-    string str = null;
-    int length = str.Length;
-    Console.WriteLine("String Length: " + length);
+    try
+    {
+        string str = null;
+        int length = str.Length;
+        Console.WriteLine("String Length: " + length);
+    }
+    catch (NullReferenceException ex)
+    {
+        Console.WriteLine("Error: The reference is null." + ex.Message);
+    }
 
     int[] numbers = new int[5];
     numbers[5] = 10;
@@ -27,10 +34,6 @@
     int num4 = 0;
     int result2 = num3 / num4;
     Console.WriteLine("Result: " + result2);
-}
-catch (NullReferenceException ex)
-{
-    Console.WriteLine("Error: The reference is null." + ex.Message);
 }
 catch (IndexOutOfRangeException ex)
 {
