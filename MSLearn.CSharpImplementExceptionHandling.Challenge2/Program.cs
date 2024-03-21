@@ -1,9 +1,19 @@
 ﻿try
 {
-    int num1 = int.MaxValue;
-    int num2 = int.MaxValue;
-    int result = num1 + num2;
-    Console.WriteLine("Result: " + result);
+    checked
+    {
+        try
+        {
+            int num1 = int.MaxValue;
+            int num2 = int.MaxValue;
+            int result = num1 + num2;
+            Console.WriteLine("Result: " + result);
+        }
+        catch (OverflowException ex)
+        {
+            Console.WriteLine("Error: The number is too large to be represented as an integer." + ex.Message);
+        }
+    }
 
     string str = null;
     int length = str.Length;
@@ -17,10 +27,6 @@
     int num4 = 0;
     int result2 = num3 / num4;
     Console.WriteLine("Result: " + result2);
-}
-catch (OverflowException ex)
-{
-    Console.WriteLine("Error: The number is too large to be represented as an integer." + ex.Message);
 }
 catch (NullReferenceException ex)
 {
